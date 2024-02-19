@@ -1,0 +1,144 @@
+body {
+    background-color: #1c69e7;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.main-container {
+    margin: 1%;
+    background-color: rgb(206, 27, 27);
+    width: 100vw; /* Ajustar el ancho para tener en cuenta los márgenes */
+    min-height: calc(100vh - 80px); /* Ajustar la altura para tener en cuenta los márgenes */
+    box-sizing: border-box;
+    display: flex; /* Habilita Flexbox */
+    flex-direction: row; /* Los hijos se disponen horizontalmente */
+}
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column; /* Cambiar a una columna en pantallas más pequeñas */
+    }
+
+    .main-container > div {
+        width: 100%; /* Asegurar que cada columna ocupe el ancho completo */
+    }
+}
+
+/* El primer y último elemento no necesitan margen en el lado correspondiente */
+.section:first-child {
+    margin-left: 0;
+}
+
+.section:last-child {
+    margin-right: 0;
+}
+
+.section {
+    flex: 1;
+    margin: 0 10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    position: relative; /* Establece el posicionamiento relativo para los hijos absolutos */
+}
+
+.content {
+    height: 100%; /* Asegura que el contenido llene la sección */
+}
+
+.section-image {
+    width: 120px;
+    height: 48px;
+    position: absolute;
+    top: 10px;
+}
+
+#input-text {
+    width: 577px;
+    height: 48px;
+    position: absolute;
+    top: 90px;
+    left: 90px;
+    padding: 10px; /* Añade un poco de padding dentro del textarea */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.warning-message {
+    width: 205px;
+    height: 18px;
+    opacity: 0.8;
+    font-family: 'Inter', Arial, sans-serif; /* Asegúrate de tener 'Inter' disponible o usa una alternativa */
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: left;
+    position: absolute;
+    top: 580px; /* Ajusta según la altura del textarea y el espacio deseado entre ambos */
+    left: 120px; /* Alineado con el inicio del textarea */
+    color: #ee1212; /* El color del texto, ajústalo según necesites */
+}
+
+.encrypt-button {
+    width: 328px; /* Ancho fijo */
+    height: 67px; /* Altura fija */
+    padding: 24px; /* Relleno interno */
+    border-radius: 24px; /* Bordes redondeados */
+    background-color: #007bff; /* Color de fondo */
+    color: white; /* Color del texto */
+    font-size: 16px; /* Tamaño del texto */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cursor en forma de mano para indicar clic */
+    display: block; /* Asegura que el botón sea un bloque */
+    position: absolute; /* Posicionamiento absoluto */
+    left: 245px; /* Centrado horizontal */
+    transform: translateX(-50%); /* Ajuste fino para centrar exactamente */
+    top: calc(550px + 18px + 40px); /* Ajusta esta línea según la posición exacta deseada */
+    box-sizing: border-box; /* El padding se incluye en la altura total */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+.encrypt-button:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el mouse */
+}
+
+.decrypt-button {
+    width: 328px;
+    height: 67px;
+    padding: 24px;
+    border-radius: 24px;
+    background-color: #28a745; /* Un color diferente para diferenciar, ajusta como necesites */
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    /* Alineación horizontal como el botón "Encriptar", pero en la segunda sección */
+    right: 145px; /* Ajustar según la alineación deseada */
+    top: calc(550px + 18px + 40px); /* Ajusta esta línea para alinear verticalmente con "Encriptar" */
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+.decrypt-button:hover {
+    background-color: #218838; /* Color de fondo al pasar el mouse */
+}
+
+#section3 .card {
+    width: 400px;
+    height: 650px;
+    position: auto;
+    top: 40px;
+    border-radius: 32px;
+    background-color: #e40a0a; /* Color de fondo para la tarjeta */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para dar profundidad */
+    box-sizing: border-box;
+}
