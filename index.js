@@ -25,7 +25,7 @@ function actualizarContenido() {
 function mostrarTextoSuperior(texto) {
     // Puedes personalizar el estilo según sea necesario
     h2Element.style.display = 'none'; // Ocultar el título h2
-    pElement.style.display = 'none'; // Ocultar el párrafo p
+    h4Element.style.display = 'none'; // Ocultar el párrafo p
     resultCard.innerHTML = `<p style="font-family: 'Inter', sans-serif; text-align: center;">${texto}</p>`;
 }
 
@@ -36,26 +36,6 @@ function mostrarTextoInferior() {
 }
 
 // Función para encriptar texto (por ahora muestra contenido estático en la tarjeta)
-function encriptarTexto() {
-    const texto = inputText.value.trim();
-    if (texto === '' || texto.toLowerCase() === 'ingrese el texto aquí') {
-        ocultarBotonCopiar();
-        mostrarContenidoEstatico();
-    } else {
-        mostrarResultado();
-    }
-}
-
-// Función para desencriptar texto (por ahora muestra contenido estático en la tarjeta)
-function desencriptarTexto() {
-    const texto = inputText.value.trim();
-    if (texto === '' || texto.toLowerCase() === 'ingrese el texto aquí') {
-        ocultarBotonCopiar();
-        mostrarContenidoEstatico();
-    } else {
-        mostrarResultado();
-    }
-}
 
 // Función para copiar texto al portapapeles
 function copiarTexto() {
@@ -67,21 +47,21 @@ function copiarTexto() {
 }
 
 // Función para mostrar el resultado en la tarjeta
-function mostrarResultado() {
-    const texto = inputText.value.trim();
-    resultCard.style.opacity = '1';
-    resultImage.style.display = 'none';
-    displayText.style.display = 'block';
-    displayText.innerText = texto;
-    copyButton.style.display = 'block';
-}
-
-// Funciones para mostrar y ocultar contenido estático
 function mostrarContenidoEstatico() {
     resultCard.style.opacity = '1';
     resultImage.style.display = 'block';
     h2Element.style.display = 'block'; // Mostrar el título h2
-    pElement.style.display = 'block'; // Mostrar el párrafo p
+    h4Element.style.display = 'block'; // Mostrar el párrafo p
+    displayText.style.display = 'none';
+    copyButton.style.display = 'none';
+}
+
+// Funciones para mostrar y ocultar contenido estático
+
+function ocultarContenidoEstatico() {
+    resultImage.style.display = 'none'; // Ocultar la imagen
+    h2Element.style.display = 'none'; // Ocultar el título h2
+    h4Element.style.display = 'none'; // Ocultar el párrafo p
     displayText.style.display = 'none';
     copyButton.style.display = 'none';
 }
@@ -94,6 +74,89 @@ function mostrarBotonCopiar() {
 function ocultarBotonCopiar() {
     copyButton.style.display = 'none';
 }
+// Función para encriptar texto según las reglas dadas
+function encriptarTexto() {
+    alert('Texto encriptado: ');
+    const texto = inputText.value.trim().toLowerCase();
+
+    if (texto === '' || texto === 'ingrese el texto aquí') {
+        ocultarBotonCopiar();
+        mostrarContenidoEstatico();
+    } else {
+        alert('Texto encriptado: soy el segundo');
+        const textoEncriptado = encriptarConReglas(texto);
+        mostrarTextoEncriptado(textoEncriptado);
+
+        // Agregar clase de movimiento al botón
+        document.querySelector('.dark-blue-button').classList.add('button-clicked');
+
+        // Eliminar la clase después de 300 ms
+        setTimeout(() => {
+            document.querySelector('.dark-blue-button').classList.remove('button-clicked');
+        }, 300);
+    }
+}
+
+// Función para desencriptar texto (con movimiento)
+function desencriptarTexto() {
+    const texto = inputText.value.trim().toLowerCase();
+
+    if (texto === '' || texto === 'ingrese el texto aquí') {
+        ocultarBotonCopiar();
+        mostrarContenidoEstatico();
+    } else {
+        mostrarResultado();
+
+        // Agregar clase de movimiento al botón
+        document.querySelector('.light-blue-button').classList.add('button-clicked');
+
+        // Eliminar la clase después de 300 ms
+        setTimeout(() => {
+            document.querySelector('.light-blue-button').classList.remove('button-clicked');
+        }, 300);
+    }
+}
+
+// Función para encriptar el texto según las reglas dadas
+function encriptarConReglas(texto) {
+    // Definir las reglas de encriptación
+    const reglas = {
+        'e': 'enter',
+        'i': 'imes',
+        'a': 'ai',
+        'o': 'ober',
+        'u': 'ufat'
+    };
+
+    // Aplicar las reglas a cada letra del texto
+    const textoEncriptado = texto.split('').map(letra => reglas[letra] || letra).join('');
+
+    return textoEncriptado;
+}
+
+// Función para mostrar el texto encriptado en la tarjeta
+function mostrarTextoEncriptado(textoEncriptado) {
+    resultCard.style.opacity = '1';
+    resultImage.style.display = 'none';
+
+    // Ocultar otros elementos
+    h2Element.style.display = 'none';
+    h4Element.style.display = 'none';
+
+    // Utiliza innerHTML para asignar el texto encriptado
+    resultCard.innerHTML = `<p style="font-family: 'Inter', sans-serif; text-align: center;">${textoEncriptado}</p>`;
+    
+    // Mostrar la tarjeta después de asignar el contenido
+    resultCard.style.display = 'flex';
+
+    // Ocultar otros elementos innecesarios
+    displayText.style.display = 'none';
+    copyButton.style.display = 'block';
+}
+
+
+
 
 // Llamada inicial para configurar el estado inicial
 actualizarContenido();
+

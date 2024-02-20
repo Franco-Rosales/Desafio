@@ -59,9 +59,6 @@ main {
 }
 
 
-
-
-
 .copy-button {
     width: 80%;
     max-width: 336px;
@@ -113,7 +110,10 @@ main {
     border-radius: 24px;
     margin:  8px;
     cursor: pointer;
-    transition: background-color 0.3s ease-out;
+    transition: background-color 0.3s ease-out, transform 0.3s ease-out;
+}
+.bottom-buttons button.button-clicked {
+    animation: buttonClickAnimation 0.3s ease-out;
 }
 
 .dark-blue-button {
@@ -200,9 +200,16 @@ main {
     text-align: center;
 }
 
-.card p {
+.card h4 {
     font-family: 'Inter', sans-serif;
     width: 336px;
     height: 48px;
     text-align: center;
 }
+
+
+.bottom-buttons button.button-clicked {
+    animation: buttonClickAnimation 0.3s ease-out;
+}
+
+
