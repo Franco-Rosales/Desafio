@@ -9,18 +9,25 @@
 </head>
 <body>
     <main>
+        <img src="img/Frame 6.png" alt="Logo" class="logo">
         <aside class="sidebar">
             <div class="text-container">
-                <textarea>Ingrese el texto aquí</textarea>
+                <textarea id="inputText" oninput="actualizarContenido()">Ingrese el texto aquí</textarea>
             </div>            
             <section class="bottom-buttons">
-                <button class="dark-blue-button">Encriptar</button>
-                <button class="light-blue-button">Desencriptar</button>
+                <button class="dark-blue-button" onclick="encriptarTexto()">Encriptar</button>
+                <button class="light-blue-button" onclick="desencriptarTexto()">Desencriptar</button>
             </section>
-            <div class="card">
-                <button class="copy-button">Copiar</button>
+            <div class="card" id="resultCard">
+                <img src="img/Muñeco.png" alt="Imagen de muestra" id="resultImage">
+                <h2>Ningún mensaje fue encontrado</h2>
+                <p>ingrese un mensaje para encriptar o desencriptar</p>
+                <button class="copy-button" onclick="copiarTexto()" id="copyButton">Copiar</button>
             </div>
+            
         </aside>
     </main>
+
+    <script src="index.js"></script>
 </body>
 </html>
