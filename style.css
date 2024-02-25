@@ -41,6 +41,8 @@ main {
     max-width: 400px;
     margin-left: auto;
     margin-top: auto;
+    padding: 0;
+    
 }
 
 .card img {
@@ -50,13 +52,19 @@ main {
 }
 
 #displayText {
-    width: 100%; /* Cambiado a 100% para ajustarse al contenedor */
+    font-family: 'Inter', sans-serif;
+    font-size: 23px; /* Tamaño de letra ajustado */
+    color: #001f3f; /* Color ajustado */
+    width: 90%;
     height: auto; /* Cambiado a auto para ajustarse al contenido */
     gap: 16px;
-    position: relative;
-    text-align: center;
+    position: absolute; /* Cambiado a absolute */
+    top: 0; /* Ajustado a la parte superior de la tarjeta */
+    text-align: start;
     display: none;
+    padding: 15px;
 }
+
 
 
 .copy-button {
@@ -115,6 +123,18 @@ main {
 .bottom-buttons button.button-clicked {
     animation: buttonClickAnimation 0.3s ease-out;
 }
+
+@keyframes buttonClickAnimation {
+    /* Define la animación aquí */
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+
 
 .dark-blue-button {
     width: 328px;
