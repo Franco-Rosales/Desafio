@@ -3,15 +3,15 @@ const resultCard = document.getElementById('resultCard');
 const resultImage = document.getElementById('resultImage'); // Agregado para la imagen
 const displayText = document.getElementById('displayText');
 const copyButton = document.getElementById('copyButton');
-const h2Element = document.querySelector('.card h2'); // Agregado para el título h2
-const h4Element = document.querySelector('.card h4');
+const h2Element = document.querySelector('.mensaje h2'); // Agregado para el título h2
+const h4Element = document.querySelector('.mensaje h4');
 
 let textoActual = '';
 let banderaTexto = false;
 
 function actualizarContenido() {
     textoActual = inputText.value.trim();
-    if (textoActual === '' || textoActual.toLowerCase() === 'ingrese el texto aquí') {
+    if (textoActual === '' || textoActual.toLowerCase() === 'ingrese el texto aqui') {
         mostrarContenidoEstatico();
         banderaTexto = false;
     } else {
